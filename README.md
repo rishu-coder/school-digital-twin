@@ -61,31 +61,30 @@ Energy	< 2 kW	2–3 kW	> 3 kW
 •	Alert rooms glow red in the 3D scene
 ________________________________________
 Architecture
-┌─────────────────────────────────────────────────────┐
-│                  Browser (React + Vite)              │
-│                                                      │
-│  ┌──────────────┐  ┌────────────────┐  ┌─────────┐  │
-│  │  3D Campus   │  │  Room Detail   │  │  Sim /  │  │
-│  │  (Three.js)  │  │  Dashboard     │  │ What-If │  │
-│  └──────┬───────┘  └───────┬────────┘  └────┬────┘  │
-│         └──────────────────┼───────────────┘        │
-│                            │                         │
-│              ┌─────────────▼──────────────┐          │
-│              │   Digital Twin State       │          │
-│              │   (React useState)         │          │
-│              │                            │          │
-│              │  RoomTwin {                │          │
-│              │    temp, co2,              │          │
-│              │    occupancy, energy,      │          │
-│              │    alert, history          │          │
-│              │  }                         │          │
-│              └─────────────┬──────────────┘          │
-│                            │                         │
-│              ┌─────────────▼──────────────┐          │
-│              │   Sensor Simulation Engine │          │
-│              │   (setInterval, 1.8s tick) │          │
-│              └────────────────────────────┘          │
-└─────────────────────────────────────────────────────┘
+
+
+                 Browser (React + Vite)            
+ 
+  3D Campus         
+  (Three.js)         
+
+  Room Detail
+  Dashboard 
+
+  Sim / What-If 
+
+  Digital Twin State                 
+  (React useState)         
+                           
+  RoomTwin {                
+    temp, co2,              
+    occupancy, energy,      
+    alert, history          
+ }                         
+
+   Sensor Simulation Engine 
+  (setInterval, 1.8s tick) 
+
 In a production deployment, the Sensor Simulation Engine would be replaced by:
 •	A WebSocket / Socket.IO connection to a live backend
 •	An MQTT broker ingesting real IoT sensor data
